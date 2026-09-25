@@ -1,4 +1,4 @@
-# EVE agent report
+# ekobot agent report
 
 Static, password-unlocked analysis and interactive replay viewer.
 Report payloads are compressed and encrypted with AES-256-GCM. The shared password is not stored in this repository.

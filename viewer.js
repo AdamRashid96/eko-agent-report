@@ -70,6 +70,15 @@ async function assetURL(file){
   if(!objectURLs.has(file))objectURLs.set(file,URL.createObjectURL(await decryptFile(file)));
   return objectURLs.get(file);
 }
+function brandReport(text){
+  // Apply the current display name without rewriting the archived replay payloads.
+  return text
+    .replace('<div class="brand">EVE <span>', '<div class="brand">ekobot <span>')
+    .replace('<small>EVE / COOPERATIVE ROBOT EXPERIMENTS', '<small>ekobot / COOPERATIVE ROBOT EXPERIMENTS')
+    .replace('"eyebrow":"EVE / four-hour cooperative experiments"', '"eyebrow":"ekobot / four-hour cooperative experiments"')
+    .replace(' · EVE</title>', ' · ekobot</title>')
+    .replace(' · Ekobot</title>', ' · ekobot</title>');
+}
 function signOut(){
   try{sessionStorage.removeItem(storageKey);}catch{}
   key=null;location.reload();
@@ -99,7 +108,7 @@ async function openReport(route){
     });
     $('loading-note').textContent='Preparing the page…';let text;
     if(blob.type==='text/html'){
-      text=await blob.text();
+      text=brandReport(await blob.text());
       if(!route.file.startsWith('coop_')){
         const parsed=new DOMParser().parseFromString(text,'text/html');
         for(const element of parsed.querySelectorAll('[src]')){
