@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta name="report-page" content="coop_runway_workshop/report.html"><title>EVE research</title>
+  <link rel="stylesheet" href="../viewer.css">
+  <script type="module" src="../viewer.js"></script>
+</head>
+<body>
+  <main id="login">
+    <div class="card">
+      <div class="eyebrow">Cooperative robot experiments</div>
+      <h1>EVE research</h1>
+      <p>Enter the password to explore the analysis and replays.</p>
+      <form id="unlock-form">
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" required autofocus>
+        <p id="login-error" class="error" role="alert" hidden></p>
+        <button id="unlock" type="submit">Open report</button>
+      </form>
+    </div>
+  </main>
+  <div id="loading" role="status" hidden>
+    <div class="card">
+      <div class="eyebrow">EVE research</div>
+      <h2 id="loading-title">Opening report</h2>
+      <progress id="progress" max="100" value="0"></progress>
+      <p id="loading-note">Loading…</p>
+      <p id="load-error" class="error" hidden></p>
+      <button id="retry" hidden>Try again</button>
+      <button id="back" class="quiet" hidden>Back to analysis</button>
+    </div>
+  </div>
+</body>
+</html>
